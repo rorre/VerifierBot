@@ -40,6 +40,8 @@ class VerifierBot(commands.Bot):
                              message.content)
         if not urls:
             return
+        if verify in message.author.roles:
+            return
         for url in urls:
             parsed_url = urlparse(url)
             if parsed_url.netloc == "osu.ppy.sh" and (
